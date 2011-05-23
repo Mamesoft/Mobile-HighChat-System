@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>超軽量チャット(Ajax使用)</title>
+		<link rel="stylesheet" href="http://mamesoft.jp/css/iui.css">
+		<link rel="stylesheet" href="ios.css">
+		<script type="text/javascript" src="http://mamesoft.jp/js/iui.js"></script>
+		<meta name="viewport" id="iphone-viewport" content="width=320, user-scalable=no,maximum-scale=1">
+
+		<script type="text/javascript" charset="utf-8" src="json2.js"></script>
+		<script type="text/javascript">
+		function help() {
+		alert("■仕様■\n\
+・名前の字数制限\n\
+・更新は10秒毎\n\
+・更新と発言が重なると2行表示（他人には1行に見えるので気にしない）\n\
+・ページを去って約一分で、入室者一覧から名前が消えます。\n\
+・この仕様を開いている間はチャットが更新されない\n\
+・ユーザーリストのユーザー名をタップするとIPを表示\n\
+・GyazoのURLが含まれていたら自動でリンクを張ります\n\
+・[s]文字[/s] で抹消線([/s]は省略可)\n\
+・#0123などで0123番の正男へのリンク\n\
+・URLは自動リンク\n\
+・[small]以降が小さい文字([/small]なし)\n\
+・パソコン版の数式機能は使用できません\n\
+Mobile HighChat System\n\
+Copyright (C) 2011 Mamesoft All Rights Reserved.");
+	}
+
+	function osuser() {
+	alert("■動作確認OS、ブラウザ■\n\
+・iOS Safari\n\
+Mobile HighChat System\n\
+Copyright (C) 2011 Mamesoft All Rights Reserved.");
+	}
+	</script>
+	</head>
+	<body>
+	<div class="toolbar">
+  <h1 id="pageTitle">81 chat</h1>
+  <a id="backButton" class="button" href="#"></a>
+</div>
+<ul selected="true" id="top" title="81 chat">
+<li>
+		<div id="joubu">
+
+			<div style="display: inline;">
+				<form name="f2" action="#" onsubmit="chat1.inout(this.n.value);return false">
+					<input type="text" name="n" size="15"><input type="submit" value="入室" name="login">
+				</form>
+
+				<form name="f" action="#" onsubmit="chat1.post(this.c.value);return false">
+					<input type="text" name="c" size="20">
+				</form><br>
+				<a href="javascript:help()">仕様</a> <a href="javascript:osuser()">環境</a> <a href="#userlist">UserList</a> <span id="status"></span>
+			</div>
+		</div>
+		</li>
+		<li>
+		<div id="plog">
+			<dl id="log">
+			</dl>
+		</div></li>
+		<li><small>Mobile HighChat System</small>
+		<li><small><small>Copyright (C) 2011 Mamesoft All Rights Reserved.</small></small></li>
+		
+		</ul>
+		<ul selected="false" id="userlist" title="UserList">
+		<li id="disp"></li>
+		<li><small>Mobile HighChat System</small>
+		<li><small><small>Copyright (C) 2011 Mamesoft All Rights Reserved.</small></small></li>
+		</ul>
+		
+		<script type="text/javascript" charset="UTF-8" src="chat.js"></script>
+		<script type="text/javascript">
+			chat1=new HighChat();
+			chat1.check();
+			setInterval(function(){chat1.check()} , 10000);
+		</script>
+	</body>
+</html>

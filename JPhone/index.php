@@ -16,13 +16,29 @@ $UA = "MHS/1.0 (MobileHighChatSystem.PHP) for JPhone";	//UserAgent
 $mode = $_GET["mode"];
 $sid = $_GET["sid"];
 
+header( 'Expires: Mon, 26 Jul 1997 05:00:00 GMT' );
+header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
+header( 'Cache-Control: no-store, no-cache, must-revalidate' );
+header( 'Cache-Control: post-check=0, pre-check=0', false );
+header( 'Pragma: no-cache' );
+
 //メイン処理
 if ($mode == "ref"){
 	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
-	print "<input type='text' name='name'>\n";
-	print "<input type='hidden' name='mode' value='login'>\n";
+	print "<input type='text' name='com'>\n";
+	print "<input type='hidden' name='mode' value='com'>\n";
 	print "<input type='hidden' name='sid' value='$sid'>\n";
-	print "<input type='submit' value='入室'>\n";
+	print "<input type='submit' value='発言'>\n";
+	print "</form>\n";
+	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
+	print "<input type='hidden' name='mode' value='logout'>\n";
+	print "<input type='hidden' name='sid' value='$sid'>\n";
+	print "<input type='submit' value='退室'>\n";
+	print "</form>\n";
+	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
+	print "<input type='hidden' name='mode' value='ref'>\n";
+	print "<input type='hidden' name='sid' value='$sid'>\n";
+	print "<input type='submit' value='リロード'>\n";
 	print "</form>\n";
 }elseif ($mode == "login"){
 	$name = $_GET["name"];
@@ -52,6 +68,11 @@ if ($mode == "ref"){
 	print "<input type='hidden' name='mode' value='logout'>\n";
 	print "<input type='hidden' name='sid' value='$sid'>\n";
 	print "<input type='submit' value='退室'>\n";
+	print "</form>\n";
+	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
+	print "<input type='hidden' name='mode' value='ref'>\n";
+	print "<input type='hidden' name='sid' value='$sid'>\n";
+	print "<input type='submit' value='リロード'>\n";
 	print "</form>\n";
 
 }elseif ($mode == "com"){
@@ -83,6 +104,11 @@ if ($mode == "ref"){
 	print "<input type='hidden' name='mode' value='logout'>\n";
 	print "<input type='hidden' name='sid' value='$sid'>\n";
 	print "<input type='submit' value='退室'>\n";
+	print "</form>\n";
+	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
+	print "<input type='hidden' name='mode' value='ref'>\n";
+	print "<input type='hidden' name='sid' value='$sid'>\n";
+	print "<input type='submit' value='リロード'>\n";
 	print "</form>\n";
 
 }elseif ($mode == "logout"){
@@ -141,12 +167,13 @@ if ($mode == "ref"){
 	print "<input type='submit' value='入室'>\n";
 	print "</form>\n";
 	
-}
-print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
-	print "<input type='hidden' name='mode' value='ref'>\n";
+	print "<form action='./index.php' method='GET' charset='UTF-8'>\n";
 	print "<input type='hidden' name='sid' value='$sid'>\n";
 	print "<input type='submit' value='リロード'>\n";
 	print "</form>\n";
+	
+}
+	
 	
 //ログ再取得
 	$ch=curl_init();

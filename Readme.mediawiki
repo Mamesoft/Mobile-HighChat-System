@@ -3,7 +3,7 @@
 This is a mobile plugin for [https://github.com/na2hiro/81chat 81chat(HighChat)].
 
 ==Information==
-HighChat is a old system. We have a new chat system is called socketchat.
+HighChat is an old system. We have a new chat system is called socketchat.
 This is better than HighChat, so you'd better to use [https://github.com/uhyo/socketchat socketchat] if you can use Node.js on your server.
 
 Socketchat https://github.com/uhyo/socketchat

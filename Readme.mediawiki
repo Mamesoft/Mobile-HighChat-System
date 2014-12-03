@@ -7,3 +7,7 @@ HighChat is an old system. We have a new chat system is called socketchat.
 This is better than HighChat, so you'd better to use [https://github.com/uhyo/socketchat socketchat] if you can use Node.js on your server.
 
 Socketchat https://github.com/uhyo/socketchat
+
+==License==
+Released under the MIT license
+see LICENSE
